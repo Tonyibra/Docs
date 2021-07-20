@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
-import LoginScreen from "./LoginScreen.js";
+import Login from "./Login.js";
 
 export default function Home() {
   const [user, loading] = useAuthState(auth);
@@ -16,7 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {loading && "loading"}
-      {!loading && user ? "homepage" : !loading && <LoginScreen />}
+      {!loading && user ? "homepage" : !loading && <Login loading={loading} />}
     </div>
   );
 }
