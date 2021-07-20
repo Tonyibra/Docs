@@ -1,13 +1,14 @@
 $font:DM Sans, sans-serif;
 
 .navBarContainer{
-    height: 88px;
+    height: 60px;
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 16px ;
     width: 100%;
+    box-sizing: border-box;
     .flex{
         display: flex;
         align-items: center;

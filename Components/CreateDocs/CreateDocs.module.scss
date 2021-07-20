@@ -1,0 +1,17 @@
+.container{
+    background: #F1F3F4;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    
+   padding: 16px;
+   .newDoc{
+       width: 70%;
+       margin: 0 auto;
+       span{
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 40px;
+       }
+   }
+}
