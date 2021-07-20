@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
 import Login from "./Login.js";
-
+import HomeComponent from "../Components/HomePage/HomeComponent";
 export default function Home() {
   const [user, loading] = useAuthState(auth);
 
@@ -16,7 +16,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {loading && "loading"}
-      {!loading && user ? "homepage" : !loading && <Login loading={loading} />}
+      {!loading && user ? (
+        <HomeComponent />
+      ) : (
+        !loading && <Login loading={loading} />
+      )}
     </div>
   );
 }
