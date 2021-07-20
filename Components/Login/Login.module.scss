@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+
+.loginContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .loginText {
+        padding-bottom: 16px;
+        font-size: 30px;
+        font-family: 'DM Sans', sans-serif;
+
+    }
+    button {
+        width: 150px;
+    }
+}

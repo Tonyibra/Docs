@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    .blankContainer{
+        height: 180px;
+        width: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        background: url("https://ssl.gstatic.com/docs/templates/thumbnails/docs-blank-googlecolors.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        padding-top: 8px;
+    }
+}

@@ -1,0 +1,62 @@
+$font:DM Sans, sans-serif;
+
+.navBarContainer{
+    height: 60px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px ;
+    width: 100%;
+    box-sizing: border-box;
+    .flex{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logoIcon{
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        cursor: pointer;
+        margin-right: 8px;
+    }
+    .logoName{
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        text-decoration: underline;
+      
+        color:#0e0e0e;
+        cursor: pointer;
+    }
+    .inputBox{
+        flex: .5;
+        padding: 0px 30px;
+        
+    .searchBox{
+        padding: 0px 20px;
+        display: flex;
+        align-items: center;
+        background: #F1F3F4;
+        border-radius: 8px;
+        height: 48px;
+        .searchIcon{
+            cursor: pointer;
+
+        }
+        input{
+            font-family: $font;
+        }
+    }
+}
+    .profilePic{
+        img{
+            width: 33px;
+            height: 33px;
+            object-fit: contain;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
