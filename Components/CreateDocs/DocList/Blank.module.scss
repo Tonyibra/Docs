@@ -14,5 +14,17 @@
         background-repeat: no-repeat;
         cursor: pointer;
         padding-top: 8px;
+        transition: all 250ms ease-in-out;
+        border: 1px solid #b3b3b3;
+        &:hover{
+            border: 1px solid #679FFF;
+            outline: none;
+            
+        }
+    }
+    .modalStyles{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
