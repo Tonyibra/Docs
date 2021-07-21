@@ -5,14 +5,20 @@ import { auth, db } from "../../../firebase";
 import firebase from "firebase";
 
 const Blank = () => {
+  const [docs, setDocs] = React.useState([]);
+
   const [docName, setDocName] = useState("Blank Document");
-  const userId = auth.currentUser?.providerData?.[0].uid;
+  const userIdentifer = auth.currentUser?.providerData?.[0].email;
   const createDocument = async () => {
     try {
-      await db.collection("users").doc(userId).collection("documents").add({
-        docName,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+      await db
+        .collection("users")
+        .doc(userIdentifer)
+        .collection("documents")
+        .add({
+          docName,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
     } catch (error) {
       console.log(error);
     }
