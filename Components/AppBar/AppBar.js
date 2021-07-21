@@ -15,7 +15,7 @@ const AppBar = () => {
   return (
     <div className={styles.navBarContainer}>
       <div className={styles.flex}>
-        <IconButton>
+        <IconButton className={styles.iconButton}>
           <MenuIcon />
         </IconButton>
         <div className={styles.logoIcon}>

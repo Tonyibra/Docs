@@ -60,3 +60,18 @@ $font:DM Sans, sans-serif;
         }
     }
 }
+@media (max-width:768px){
+    .navBarContainer{
+        padding: 0px 8px;
+        .inputBox{
+            flex: 1;
+            padding: 0 16px;
+        }
+        .flex{
+            .iconButton{
+            display: none !important;
+            }
+    }
+   
+    }
+}
