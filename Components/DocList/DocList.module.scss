@@ -1,0 +1,31 @@
+.docList{
+    
+  width: 70%;
+  margin: 4px auto;
+  display: flex;
+  align-items: center;
+  background: #F1F3F4;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 8px;
+    .docCard{
+        display: flex;
+        align-items: center;
+        
+    }
+    img{
+        height: 33px;
+        width: 33px;
+        object-fit: contain;
+        padding-right: 8px;
+    }
+    .timestamp{
+        display: flex;
+        align-items: center;
+        span{
+            color: #0e0e0e;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 22px;
+        }
+    }
+}

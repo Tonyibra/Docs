@@ -19,9 +19,29 @@ const HomeComponent = () => {
     <div className={styles.container}>
       <AppBar />
       <CreateDocument />
-      {documents?.map((document) => (
-        <DocList key={document.id} />
-      ))}
+      <div className={styles.header}>
+        <span>My Documents</span>
+        <span>Date Created</span>
+      </div>
+      <div
+        style={{
+          paddingTop: 32,
+          display: "flex",
+          padding: "4px 0px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+          }}
+        >
+          {documents?.map((document) => (
+            <DocList key={document.id} document={document} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

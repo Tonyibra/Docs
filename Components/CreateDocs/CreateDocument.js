@@ -6,7 +6,6 @@ const CreateDocument = () => {
     <div className={styles.container}>
       <div className={styles.newDoc}>
         <span>start a new document</span>
-
         <Blank />
       </div>
     </div>
