@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Head from "next/Head";
+import Head from "next/head";
 import LoginComponent from "../Components/Login/LoginComponent";
 import { auth } from "../firebase";
 import { useRouter } from "next/Router";

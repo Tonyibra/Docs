@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { db, auth } from "../../firebase";
 import { convertFromRaw, convertToRaw } from "draft-js";
 import Header from "../TextEditor/EditorHeader/Header.js";
-import Head from "next/head";
 ("draft-js");
 const Editor = dynamic(
   () => import("react-draft-wysiwyg").then((module) => module.Editor),
@@ -14,6 +13,7 @@ const Editor = dynamic(
     ssr: false,
   }
 );
+import Head from "next/head";
 import styles from "./TextEditor.module.scss";
 import { useDocumentOnce } from "react-firebase-hooks/firestore";
 import { LinearProgress } from "@material-ui/core";
@@ -54,12 +54,9 @@ const TextEditor = () => {
 
   return (
     <div>
-      {snapshot?.data() ? (
-        <>
-          <Head>
-            <title>{`${docName} | Docs`}</title>
-          </Head>
-
+      <>
+        <Head>{`${docName} | Docs`}</Head>
+        {snapshot?.data() ? (
           <div className={styles.container}>
             <Header docName={docName} id={id} setDocName={setDocName} />
             <Editor
@@ -69,10 +66,10 @@ const TextEditor = () => {
               editorClassName={styles.editorClassName}
             />
           </div>
-        </>
-      ) : (
-        <LinearProgress />
-      )}
+        ) : (
+          <LinearProgress />
+        )}
+      </>
     </div>
   );
 };
