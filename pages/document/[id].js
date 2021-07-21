@@ -5,7 +5,6 @@ import Login from "../Login";
 import Head from "next/head";
 import TextEditor from "../../Components/TextEditor/TextEditor";
 import Header from "../../Components/TextEditor/EditorHeader/Header";
-import { useRouter } from "next/Router";
 import { useCollectionOnce } from "react-firebase-hooks/firestore";
 
 const document = () => {
