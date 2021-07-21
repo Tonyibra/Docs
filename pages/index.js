@@ -20,7 +20,7 @@ export default function Home() {
       {!loading && user ? (
         <HomeComponent />
       ) : (
-        !loading && <Login loading={loading} />
+        !loading && !user && <Login loading={loading} />
       )}
     </div>
   );
