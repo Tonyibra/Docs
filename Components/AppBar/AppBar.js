@@ -8,6 +8,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import { auth } from "../../firebase";
 import collection from "../../icons/collection.svg";
 const AppBar = () => {
+  const logoutHandler = async () => {
+    await auth().signOut();
+  };
   const profilePic = auth.currentUser.providerData?.[0]?.photoURL;
   return (
     <div className={styles.navBarContainer}>
@@ -28,7 +31,7 @@ const AppBar = () => {
         </Box>
       </div>
       <div className={styles.profilePic}>
-        <img src={profilePic} alt="profile" />
+        <img onClick={logoutHandler} src={profilePic} alt="profile" />
       </div>
     </div>
   );
