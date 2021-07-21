@@ -5,31 +5,40 @@ import { auth, db } from "../../../firebase";
 import firebase from "firebase";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-const Blank = () => {
+import { route } from "next/dist/next-server/server/router";
+
+const Blank = ({ documents, setLoading, loading }) => {
   const router = useRouter();
-  const [docs, setDocs] = React.useState([]);
-  const id = uuidv4().replaceAll("-", "");
+  let id = null;
   const [docName, setDocName] = useState("Blank Document");
   const userIdentifer = auth.currentUser?.providerData?.[0].email;
   const createDocument = async () => {
-    console.log(id);
     try {
-      await db
+      setLoading(true);
+      const data = await db
         .collection("users")
         .doc(userIdentifer)
         .collection("documents")
         .add({
           docName,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          id,
         });
+      id = data.id;
+      setLoading(false);
+      console.log(data);
     } catch (error) {
+      setLoading(false);
       console.log(error);
+    }
+    if (!loading) {
+      goToDocument();
     }
   };
 
-  const goToDocument = () => {};
+  const goToDocument = () => {
+    console.log(`docs.id : ${id}`);
+    router.push(`/document/${id}`);
+  };
 
   return (
     <div className={styles.container}>

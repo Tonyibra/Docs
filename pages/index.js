@@ -2,9 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import Login from "./Login.js";
 import HomeComponent from "../Components/HomePage/HomeComponent";
+import { useCollectionOnce } from "react-firebase-hooks/firestore";
 export default function Home() {
   const [user, loading] = useAuthState(auth);
 

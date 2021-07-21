@@ -2,12 +2,14 @@ import React from "react";
 import AppBar from "../AppBar/AppBar";
 import CreateDocument from "../CreateDocs/CreateDocument";
 import styles from "./Home.module.scss";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useCollectionOnce } from "react-firebase-hooks/firestore";
 import { auth, db } from "../../firebase";
 import DocList from "../DocList/DocList";
+import LinearProgress from "@material-ui/core/LinearProgress";
 const HomeComponent = () => {
+  const [loading, setLoading] = React.useState(false);
   const userIdentifer = auth.currentUser?.providerData?.[0].email;
-  const [documents] = useCollectionData(
+  const [documents] = useCollectionOnce(
     db
       .collection("users")
       .doc(userIdentifer)
@@ -17,8 +19,13 @@ const HomeComponent = () => {
   console.log(documents);
   return (
     <div className={styles.container}>
+      {loading && <LinearProgress />}
       <AppBar />
-      <CreateDocument />
+      <CreateDocument
+        documents={documents}
+        setLoading={setLoading}
+        loading={loading}
+      />
       <div className={styles.header}>
         <span>My Documents</span>
         <span>Date Created</span>
@@ -37,8 +44,13 @@ const HomeComponent = () => {
             flex: 1,
           }}
         >
-          {documents?.map((document) => (
-            <DocList key={document.id} document={document} />
+          {documents?.docs.map((document) => (
+            <DocList
+              key={document.id}
+              id={document.id}
+              fileName={document.data().docName}
+              date={document.data().timestamp}
+            />
           ))}
         </div>
       </div>

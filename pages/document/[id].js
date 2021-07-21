@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { Editor, EditorState } from "draft-js";
+import { useDocumentOnce } from "react-firebase-hooks/firestore";
+import { db, auth } from "../../firebase";
+import Login from "../Login";
+import Head from "next/head";
+import TextEditor from "../../Components/TextEditor/TextEditor";
+import Header from "../../Components/TextEditor/EditorHeader/Header";
+import { useRouter } from "next/Router";
+import { useCollectionOnce } from "react-firebase-hooks/firestore";
 
 const document = () => {
-  const [editorState, setEditorState] = React.useState(() =>
-    EditorState.createEmpty()
-  );
+  if (!auth) return <Login />;
+
   return (
-    <div>
-      <Editor editorState={editorState} onChange={setEditorState} />
-    </div>
+    <>
+      <div>
+        <TextEditor />
+      </div>
+    </>
   );
 };
 
