@@ -17,11 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {loading && "loading"}
-      {!loading && user ? (
-        <HomeComponent />
-      ) : (
-        !loading && !user && <Login loading={loading} />
-      )}
+      {!loading && user ? <HomeComponent /> : <Login loading={loading} />}
     </div>
   );
 }
