@@ -1,27 +1,23 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import LoginComponent from "../Components/Login/LoginComponent";
-import { auth } from "../firebase";
-import { useRouter } from "next/router";
-const Login = ({ loading }) => {
-  const router = useRouter();
+import HomeComponent from "../Components/HomePage/HomeComponent";
+const Login = ({ loading, user }) => {
   useEffect(() => {
-    if (auth) {
-      router.push("/");
+    if (user) {
+      <HomeComponent />;
     }
   });
 
   return (
     <div>
       <>
-        {loading && (
-          <div>
-            <Head>
-              <title>Login | Docs</title>
-            </Head>
-            <LoginComponent />
-          </div>
-        )}
+        <div>
+          <Head>
+            <title>Login | Docs</title>
+          </Head>
+          <LoginComponent />
+        </div>
       </>
     </div>
   );

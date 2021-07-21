@@ -9,7 +9,7 @@ import { auth } from "../../firebase";
 import collection from "../../icons/collection.svg";
 const AppBar = () => {
   const logoutHandler = async () => {
-    await auth().signOut();
+    await auth.signOut();
   };
   const profilePic = auth.currentUser.providerData?.[0]?.photoURL;
   return (
