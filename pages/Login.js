@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import LoginComponent from "../Components/Login/LoginComponent";
 import { auth } from "../firebase";
-import { useRouter } from "next/Router";
+import { useRouter } from "next/router";
 const Login = ({ loading }) => {
   const router = useRouter();
   useEffect(() => {
