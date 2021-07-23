@@ -14,7 +14,7 @@ const HomeComponent = () => {
       .collection("users")
       .doc(userIdentifer)
       .collection("documents")
-      .orderBy("timestamp")
+      .orderBy("timestamp", "desc")
   );
   console.log(documents);
   return (
